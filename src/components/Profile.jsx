@@ -1,7 +1,8 @@
 import React from 'react';
+import s from './Profile.module.css';
 
 const Profile = () => {
-    return <div className="content">
+    return <div className={s.content}>
         <div className="content_image">
             <img src="https://habrastorage.org/files/80b/34f/664/80b34f6642a5480c9d5b6ed9bc660edf.jpg" />
         </div>

@@ -1,0 +1,84 @@
+.content {
+    grid-area: c;
+    background-color: skyblue;
+  }
+  
+  .content_image {
+    position: relative;
+    overflow: hidden;
+    width: 1000px;
+    height: 100px;
+  }
+  
+  .content_image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .content_profile {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .content_profile-text {
+    margin-left: 30px;
+  }
+  
+  .content_profile-image img {
+    width: 100px;
+    border: 3px solid cornflowerblue;
+    border-radius: 45%;
+  }
+  
+  .content_profile__about ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .content_profile__about :first-child {
+    margin-top: 15px;
+  }
+  
+  .content_post {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .content_post-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content_post-btn {
+    color: #ffffff;
+    background-color: cornflowerblue;
+    border: transparent;
+    width: 60px;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 745px;
+    border-radius: 45px;
+  }
+  
+  .content_post-form input {
+    padding-left: 5px;
+    border: 3px solid cornflowerblue;
+    border-radius: 45px;
+    /* color: rgb(255, 255, 255); */
+    background-color: transparent;
+    margin: 0;
+    width: 800px;
+    height: 40px;
+    outline: none;
+  }
+  
+  .content_post-form input::placeholder {
+    color: #ffffff;
+  }
