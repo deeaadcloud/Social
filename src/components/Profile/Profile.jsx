@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Profile.css';
+import Post from './MyPost/Post/Post.jsx';
 
 const Profile = () => {
     return <div className="content">
@@ -24,15 +25,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
-        <div className="content_post">
-            <div className="content_post__name">My post</div>
-            <div className="content_post-form">
-                <label>
-                    <input type="text" name="name" placeholder="your news..." />
-                </label>
-                <button className="content_post-btn">Send</button>
-            </div>
-        </div>
+        <Post />
     </div>
 }
 
