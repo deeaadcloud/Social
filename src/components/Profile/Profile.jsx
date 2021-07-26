@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Profile.css';
-import Post from './MyPost/Post/Post.jsx';
+import MyPosts from './MyPost/MyPosts.jsx';
 
 const Profile = () => {
     return <div className="content">
@@ -25,7 +25,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
-        <Post />
+        <MyPosts />
     </div>
 }
 
