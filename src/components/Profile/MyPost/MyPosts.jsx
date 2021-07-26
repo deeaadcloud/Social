@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MyPost.module.css';
-import Post from './Post/Post.jsx';
+import Post from './Post/Post';
 
 const MyPosts = () => {
     return <div className={s.post}>
@@ -11,11 +11,11 @@ const MyPosts = () => {
             </label>
             <button className={s.btn}>Send</button>
         </div>
-        <Post />
-        <Post />
-        <Post />
+        <Post message='Hi, how are you?' />
+        <Post message="Hello!" />
+
     </div>
-    
+
 }
 
 export default MyPosts;
