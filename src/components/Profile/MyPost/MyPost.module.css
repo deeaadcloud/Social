@@ -22,11 +22,12 @@
   }
   
   .form input {
-    padding-left: 5px;
+    padding:0 10px 0 10px;
     border: 3px solid cornflowerblue;
     border-radius: 45px;
     /* color: rgb(255, 255, 255); */
     background-color: transparent;
+    color: #ffffff;
     margin: 0;
     width: 800px;
     height: 40px;

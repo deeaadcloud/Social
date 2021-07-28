@@ -9,14 +9,8 @@
   justify-content: center;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  margin-left: 5px;
-  padding: 0;
+.wrapper-content {
+  grid-area: c;
+  background-color: skyblue;
 }
-
-
-
-
 

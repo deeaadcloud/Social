@@ -1,0 +1,29 @@
+.main {
+    margin: 10px 0 5px 5px;
+}
+
+.title {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.inner {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.name {}
+
+.name_items a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.name_items a.active {
+    color: cornflowerblue;
+}
+
+.messages {}
+
+.messages_items {}

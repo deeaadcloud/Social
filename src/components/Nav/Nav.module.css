@@ -1,12 +1,31 @@
 .nav {
-    background-color: skyblue;
-    grid-area: n;
-  }
-  
-  .nav :last-child {
-    margin-top: 20px;
-  }
-  
-  .nav :first-child {
-    margin-top: 5px;
-  }
+  background-color: skyblue;
+  grid-area: n;
+}
+
+.nav :last-child {
+  margin-top: 20px;
+}
+
+.nav :first-child {
+  margin-top: 5px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.items a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  list-style-type: none;
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+}
+
+.items a.active {
+  color: cornflowerblue;
+}
