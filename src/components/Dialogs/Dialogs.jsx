@@ -2,48 +2,43 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Dialogs = () => {
+const DialogItem = (props) => {
+
+    let path = "/dialogs/" + props.id;
+
+    return (
+        <div className={s.name_items}>
+            <NavLink to={path} activeClassName={s.active}>
+                {props.name}
+            </NavLink>
+        </div>
+    )
+}
+
+const MessageItem = (props) => {
+    return (
+        <div className={s.messages_items}>{props.message}</div>
+    )
+}
+
+const Dialogs = (props) => {
     return (
         <div className={s.main}>
             <div className={s.title}>Messages</div>
             <div className={s.inner}>
                 <div className={s.name}>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/1" activeClassName={s.active}>
-                            Catherine
-                        </NavLink>
-                    </div>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/2" activeClassName={s.active}>
-                            Vladimir
-                        </NavLink>
-                    </div>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/3" activeClassName={s.active}>
-                            Pavel
-                        </NavLink>
-                    </div>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/4" activeClassName={s.active}>
-                            Max
-                        </NavLink>
-                    </div>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/5" activeClassName={s.active}>
-                            Vladislav
-                        </NavLink>
-                    </div>
-                    <div className={s.name_items}>
-                        <NavLink to="/dialogs/6" activeClassName={s.active}>
-                            Makar
-                        </NavLink>
-                    </div>
+                    <DialogItem name="Catherine" id="1" />
+                    <DialogItem name="Vladimir" id="2" />
+                    <DialogItem name="Pavel" id="3" />
+                    <DialogItem name="Max" id="4" />
+                    <DialogItem name="Vladislav" id="5" />
+                    <DialogItem name="Makar" id="6" />
                 </div>
                 <div className={s.messages}>
-                    <div className={s.messages_items}>hi</div>
-                    <div className={s.messages_items}>hello</div>
-                    <div className={s.messages_items}>how are you</div>
-                    <div className={s.messages_items}>you stupid</div>
+                    <MessageItem message="hi" />
+                    <MessageItem message="hello" />
+                    <MessageItem message="how are you" />
+                    <MessageItem message="you stupid" />
                 </div>
             </div>
         </div>

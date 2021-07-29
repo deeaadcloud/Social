@@ -1,0 +1,41 @@
+.content_image {
+  position: relative;
+  overflow: hidden;
+  width: 1000px;
+  height: 100px;
+}
+
+.content_image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.content_profile {
+  display: flex;
+  margin-top: 10px;
+}
+
+.content_profile_text {
+  margin-left: 30px;
+}
+
+.content_profile_image img {
+  width: 100px;
+  border: 3px solid cornflowerblue;
+  border-radius: 45%;
+}
+
+.content_profile__about ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content_profile__about :first-child {
+  margin-top: 15px;
+}
