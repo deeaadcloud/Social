@@ -1,3 +1,15 @@
+.posts{
+  margin-left: 5px;
+}
+
 .item{
   color: #ffffff;
+}
+.like{
+  display: flex;
+  margin-bottom: 10px;
+}
+.like_title{
+  margin: 0;
+  padding: 0;
 }
