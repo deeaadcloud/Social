@@ -3,10 +3,10 @@ import s from './Profile.css';
 import MyPosts from './MyPost/MyPosts.jsx';
 import ProfileInf from './ProfileInf/ProfileInf'
 
-const Profile = () => {
+const Profile = (props) => {
     return <div className="content">
         <ProfileInf />
-        <MyPosts />
+        <MyPosts posts={props.posts} />
     </div>
 }
 
