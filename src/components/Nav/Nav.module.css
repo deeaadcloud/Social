@@ -3,11 +3,11 @@
   grid-area: n;
 }
 
-.nav :last-child {
+.items :last-child {
   margin-top: 20px;
 }
 
-.nav :first-child {
+.items :first-child {
   margin-top: 5px;
 }
 
