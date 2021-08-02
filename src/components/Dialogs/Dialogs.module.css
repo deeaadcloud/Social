@@ -13,10 +13,17 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.name {}
-
 .name_items a {
     text-decoration: none;
+    color: #ffffff;
+}
+
+.name a:hover {
+    transition: 0.15s;
+    color: cornflowerblue;
+}
+
+.messages {
     color: #ffffff;
 }
 

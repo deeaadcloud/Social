@@ -1,6 +1,8 @@
 .nav {
   background-color: skyblue;
   grid-area: n;
+  width: 189px;
+  border-radius: 5px;
 }
 
 .items :last-child {
@@ -27,5 +29,10 @@
 }
 
 .items a.active {
+  color: cornflowerblue;
+}
+
+.items a:hover {
+  transition: 0.15s;
   color: cornflowerblue;
 }

@@ -1,7 +1,7 @@
 .content_image {
   position: relative;
   overflow: hidden;
-  width: 1000px;
+  width: 996px;
   height: 100px;
 }
 
@@ -10,9 +10,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1000px;
+  width: 996px;
   height: 100px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .content_profile {

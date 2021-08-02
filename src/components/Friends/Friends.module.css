@@ -1,0 +1,47 @@
+.friend{
+    margin-top: 20px;
+}
+.title{
+    color: #ffffff; 
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.friends_img img:hover{
+    transition: 0.15s;
+    width: 27px;
+    border: 2px solid cornflowerblue;
+    border-radius: 45px;
+}
+
+.title:hover{
+    transition: 0.15s;
+    color:  cornflowerblue;
+}
+
+
+.friend_inner{
+    display: flex;
+    flex-direction: column;
+}
+.friends_img{
+    display: flex;
+    margin: 0 5px;
+    justify-content: space-between;
+    max-height: 30px;
+}
+.friends_img img{
+    width: 30px;
+    height: 30px; 
+}
+.friends_name{
+    display: flex;
+    margin: 0 5px;
+    justify-content: space-between;
+}
+.name{
+    color: #ffffff;
+}
+
