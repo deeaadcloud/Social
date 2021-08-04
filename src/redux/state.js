@@ -1,3 +1,4 @@
+import { rerenderTree } from '../render'
 
 let state = {
     profilePage: {
@@ -23,30 +24,30 @@ let state = {
             { id: 4, name: "Max" },
             { id: 5, name: "Vladislav" },
             { id: 6, name: "Makar" }
-        ]},
-    friendsPage:{
-        name:[
-            {name:"Pavel"},
-            {name:"Catherine"},
-            {name:"Makar"}
+        ]
+    },
+    friendsPage: {
+        name: [
+            { name: "Pavel" },
+            { name: "Catherine" },
+            { name: "Makar" }
         ],
-        src:[
-            {src:"https://image.flaticon.com/icons/png/512/252/252035.png" },
-            {src:"https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-383.png" },
-            {src:"https://upload.wikimedia.org/wikipedia/ru/4/4f/Virtus.proLogo.png" }
+        src: [
+            { src: "https://image.flaticon.com/icons/png/512/252/252035.png" },
+            { src: "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-383.png" },
+            { src: "https://upload.wikimedia.org/wikipedia/ru/4/4f/Virtus.proLogo.png" }
         ]
     }
-    
-
-}
+};
 
 export let addPost = (postMessage) => {
-    let newPost ={
-        id:5,
-        message: postMessage,
-        likesCount :0
+    let newPost = {
+        id: 5,
+        post: postMessage,
+        likesCount: 0
     };
     state.profilePage.posts.push(newPost);
+    rerenderTree(state);
 }
 
 
