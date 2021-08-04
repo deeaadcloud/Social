@@ -10,6 +10,7 @@
 }
 
 .wrapper-content {
+  width: 996px;
   grid-area: c;
   background-color: skyblue;
   border-radius: 5px; 

@@ -31,6 +31,30 @@
     color: cornflowerblue;
 }
 
-.messages {}
+.btn {
+    color: #ffffff;
+    background-color: cornflowerblue;
+    border: transparent;
+    width: 60px;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 745px;
+    border-radius: 45px;
+}
 
-.messages_items {}
+.form input {
+    padding: 0 10px 0 10px;
+    border: 3px solid cornflowerblue;
+    border-radius: 45px;
+    background-color: transparent;
+    color: #ffffff;
+    margin-top: 10px;
+    width: 780px;
+    height: 40px;
+    outline: none;
+}
+
+.form input::placeholder {
+    color: #ffffff;
+}

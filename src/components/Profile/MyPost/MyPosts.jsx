@@ -3,17 +3,20 @@ import s from './MyPost.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
-    
-    let postsElement = props.posts.map (post => <Post message={post.post} likesCount={post.likesCount} />);
+    let postsElement = props.posts.map(post => <Post message={post.post} likesCount={post.likesCount} />);
+    let newPostElement = React.createRef();
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+    }
 
     return <div className={s.post}>
         <div className="content_post__name">My post</div>
         <div className={s.form}>
             <label>
-                <input type="text" name="name" placeholder="your news..." />
+                <input ref={newPostElement} type="text" name="name" placeholder="your news..." />
             </label>
-            <button className={s.btn}>Send</button>
+            <button onClick={addPost} className={s.btn}>Send</button>
         </div>
         {postsElement}
     </div>
