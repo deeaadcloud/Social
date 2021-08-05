@@ -7,16 +7,21 @@ const MyPosts = (props) => {
 
     let newPostElement = React.createRef();
     let addPost = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = '';
+        props.updateNewPostText(text);
     }
 
     return <div className={s.post}>
         <div className="content_post__name">My post</div>
         <div className={s.form}>
             <label>
-                <input ref={newPostElement} type="text" name="name" placeholder="your news..." />
+                <input onChange={onPostChange} ref={newPostElement}
+                    type="text" name="name" placeholder="your news..."
+                    value={props.newPostText} />
             </label>
             <button onClick={addPost} className={s.btn}>Send</button>
         </div>
