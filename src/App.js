@@ -12,6 +12,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 
+
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -26,8 +27,7 @@ const App = (props) => {
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />
-          <Route path="/friends" render={() => <Friends 
-          friendsPage={props.state.friendsPage}/>} />
+          <Route path="/friends" render={() => <Friends  friendsPage={props.state.friendsPage}/>} />
         </div>
       </div>
     </BrowserRouter>)
