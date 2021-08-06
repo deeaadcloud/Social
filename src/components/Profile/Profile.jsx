@@ -4,8 +4,7 @@ import ProfileInf from './ProfileInf/ProfileInf'
 
 const Profile = (props) => {
     return <div className="content">
-        <ProfileInf dialogs={props.dialogs} message={props.message}/>
-
+        <ProfileInf />
         <MyPosts posts={props.profilePage.posts} 
         newPostText={props.profilePage.newPostText} 
         addPost={props.addPost}

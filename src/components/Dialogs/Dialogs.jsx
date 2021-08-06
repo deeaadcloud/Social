@@ -8,8 +8,11 @@ const Dialogs = (props) => {
     let messagesElement = props.dialogsPage.messages.map(message => <MessageItem message={message.message} />)
     let newMessageElement = React.createRef();
     let addMessage = () => {
+        props.addMessage();
+    }
+    let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        props.updateNewMessageText(text);
     }
     return (
         <div className={s.main}>
@@ -23,11 +26,13 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={s.form}>
-            <label>
-                <input ref={newMessageElement} type="text" name="name" placeholder="Write a message..." />
-            </label>
-            <button onClick={addMessage} className={s.btn}>Send</button>
-        </div>
+                <label>
+                    <input onChange={onMessageChange} ref={newMessageElement}
+                        type="text" name="name" placeholder="Write a message..."
+                        value={props.newMessageText} />
+                </label>
+                <button onClick={addMessage} className={s.btn}>Send</button>
+            </div>
         </div>
 
     )
