@@ -6,10 +6,10 @@ let store = {
                 { id: 2, post: 'Hello!', likesCount: 10 },
                 { id: 3, post: 'how are you', likesCount: 8 },
                 { id: 4, post: 'you stupid', likesCount: 3 }
-    
+
             ],
-            newPostText:    'DeadCloud'
-            
+            newPostText: 'DeadCloud'
+
         },
         dialogsPage: {
             messages: [
@@ -18,7 +18,7 @@ let store = {
                 { id: 3, message: 'how are you' },
                 { id: 4, message: 'you stupid' }
             ],
-            newMessageText:    'DeadCloud',
+            newMessageText: 'DeadCloud',
             dialogs: [
                 { id: 1, name: "Catherine" },
                 { id: 2, name: "Vladimir" },
@@ -27,7 +27,7 @@ let store = {
                 { id: 5, name: "Vladislav" },
                 { id: 6, name: "Makar" }
             ]
-            
+
         },
         friendsPage: {
             name: [
@@ -42,43 +42,57 @@ let store = {
             ]
         }
     },
-    getState () {
+    _callSubscriber() {
+        console.log('statechange');
+    },
+    getState() {
         return this._state;
     },
-    _callSubscriber () {
-        console.log ('statechange');
-    },
-    addMessage () {
-        let newMessage ={
-            id:5,
-            message: this._state.dialogsPage.newMessageText,
-        };
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = ('');
-        this._callSubscriber(this._state);
-    },
-    addPost () {
-        let newPost = {
-            id: 5,
-            post: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = ('');
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText (NewText) {
-        this._state.profilePage.newPostText=NewText;
-        this._callSubscriber(this._state);
-    },
-    updateNewMessageText (NewMessage) {
-        this._state.dialogsPage.newMessageText=NewMessage;
-        this._callSubscriber(this._state);
-    },
-    subscribe (observer) {
+    subscribe(observer) {
         this._callSubscriber = observer;
+    },
+    // addMessage() {
+    //     let newMessage = {
+    //         id: 5,
+    //         message: this._state.dialogsPage.newMessageText,
+    //     };
+    //     this._state.dialogsPage.messages.push(newMessage);
+    //     this._state.dialogsPage.newMessageText = ('');
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewMessageText(NewMessage) {
+    //     this._state.dialogsPage.newMessageText = NewMessage;
+    //     this._callSubscriber(this._state);
+    // },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                post: this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = ('');
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.NewText;
+            this._callSubscriber(this._state);
+        }
+        if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 5,
+                message: this._state.dialogsPage.newMessageText,
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = ('');
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.NewMessage;
+            this._callSubscriber(this._state);
+        }
     }
 }
+
 
 
 export default store;
