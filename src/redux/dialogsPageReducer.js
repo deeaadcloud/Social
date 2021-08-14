@@ -8,7 +8,7 @@ let initialState = {
         { id: 3, message: 'how are you' },
         { id: 4, message: 'you stupid' }
     ],
-    newMessageText: 'write',
+    newMessageText: '',
     dialogs: [
         { id: 1, name: "Catherine" },
         { id: 2, name: "Vladimir" },

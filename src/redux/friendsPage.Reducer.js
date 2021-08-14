@@ -12,8 +12,11 @@ let initialState = {
 }
 
 const friendsPageReducer = (state = initialState, action) => {
-
-    return state;
+    switch (action.type){
+        default:
+            return state;
+    } 
+    
 }
 
 export default friendsPageReducer;
