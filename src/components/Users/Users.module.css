@@ -2,3 +2,20 @@ img {
     width: 60px;
     height: 60px;
 }
+.preloaderImg {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transition: all 0.5s ease;
+    animation: slide 2s linear infinite;
+}
+.preloaderImg img{
+    width: 200px;
+    height: 200px;
+    margin-left: 300px;
+}
+@keyframes slide {
+    0%	{ top: 60px; }
+	50%	{ top: 100px; }
+	100%	{ top: 60px; }
+  }
