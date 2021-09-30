@@ -2,9 +2,9 @@ import React from 'react';
 import MyPostsContainer from './MyPost/MyPostsContainer.jsx';
 import ProfileInf from './ProfileInf/ProfileInf'
 
-const Profile = () => {
+const Profile = (props) => {
     return <div className="content">
-        <ProfileInf />
+        <ProfileInf profile={props.profile}/>
         <MyPostsContainer />
     </div>
 }

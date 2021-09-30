@@ -1,9 +1,16 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
+const PAGE_NUMBER_LIMIT = 'PAGE_NUMBER_LIMIT';
+const MAX_PAGE_NUMBER_LIMIT ='MAX_PAGE_NUMBER_LIMIT';
+const MIN_PAGE_NUMBER_LIMIT ='MIN_PAGE_NUMBER_LIMIT';
+
 let initialState = {
     users: [
         // {
@@ -25,9 +32,14 @@ let initialState = {
 
     ],
     pageSize:5,
-    totalUsersCount:16,
+    totalUsersCount:0,
     currentPage:1,
+    pageNumberLimit:5,
+    maxPageNumberLimit:10,
+    minPageNumberLimit:0,
+    followingInProgress: [],
     isFetching: true
+
 }
 
 const usersPageReducer = (state = initialState, action) => {
@@ -57,18 +69,47 @@ const usersPageReducer = (state = initialState, action) => {
             return { ...state, currentPage: action.currentPage }
         case SET_TOTAL_USER_COUNT:
             return { ...state, totalUsersCount: action.totalUsersCount }
+        case PAGE_NUMBER_LIMIT:
+            return { ...state, pageNumberLimit: action.pageNumberLimit }
+        case MAX_PAGE_NUMBER_LIMIT:
+            return { ...state, maxPageNumberLimit: action.maxPageNumberLimit }
+        case MIN_PAGE_NUMBER_LIMIT:
+            return { ...state, minPageNumberLimit: action.minPageNumberLimit }
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetching: action.isFetching }
+        case TOGGLE_IS_FOLLOWING_PROGRESS:
+            return { ...state, followingInProgress:action.isFetching
+                ? [...state.followingInProgress, action.userId]
+                :state.followingInProgress.filter(id=> id !=action.userId)
+            }
         default:
             return state;
     }
 
 }
 
-export const followActionCreater = (userId) => ({ type: FOLLOW, userId })
-export const unfollowActionCreater = (userId) => ({ type: UNFOLLOW, userId })
-export const setUsersActionCreater = (users) => ({ type: SET_USERS, users })
-export const setCurrentActionCreater = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
-export const setToggleFetchingActionCreater = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
-export const setTotalUsersCountActionCreater = (totalUsersCount) => ({ type: SET_TOTAL_USER_COUNT, totalUsersCount })
+export const follow = (userId) => ({ type: FOLLOW, userId })
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId })
+export const setUsers = (users) => ({ type: SET_USERS, users })
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
+export const setToggleFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
+export const setfollowingInProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching,userId  })
+export const setpageNumberLimit = (pageNumberLimit) => ({ type: PAGE_NUMBER_LIMIT, pageNumberLimit })
+export const setmaxPageNumberLimit = (maxPageNumberLimit) => ({ type: MAX_PAGE_NUMBER_LIMIT, maxPageNumberLimit })
+export const setminPageNumberLimit = (minPageNumberLimit) => ({ type: MIN_PAGE_NUMBER_LIMIT, minPageNumberLimit })
+export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USER_COUNT, totalUsersCount })
+
+export const getUsersThunkCreator = (currentPage,pageSize) => {
+    return (dispatch) => {
+        dispatch(setToggleFetching(true))
+        // dispatch (setmaxPageNumberLimit(maxPageNumberLimit))
+            usersAPI.getUsers(currentPage, pageSize).then(data => {            
+                dispatch(setToggleFetching(false))
+                dispatch(setUsers(data.items))
+                dispatch(setTotalUsersCount(data.totalCount))
+    
+            });
+    }
+} 
+
 export default usersPageReducer;

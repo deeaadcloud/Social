@@ -20,6 +20,9 @@
   display: flex;
   margin-top: 10px;
 }
+.content_profile__name{
+  color: rgb(20, 86, 208);
+}
 
 .content_profile_text {
   margin-left: 30px;
@@ -29,8 +32,14 @@
   width: 60px;
   border: 3px solid cornflowerblue;
   border-radius: 45%;
+  margin-left: 5px;
 }
-
+.content_profile__about img {
+  
+  display: flex;
+  height: 200px;
+  width: 200px;
+}
 .content_profile__about ul {
   list-style: none;
   padding: 0;
@@ -39,4 +48,16 @@
 
 .content_profile__about :first-child {
   margin-top: 15px;
+}
+.contacts{
+  list-style-type: none;
+  padding: 0;
+}
+
+.contacts :first-child{
+  margin-top: 10px;
+}
+.contacts a {
+  text-decoration: none;
+  color: rgb(20, 86, 208);
 }
